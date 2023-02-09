@@ -1,0 +1,18 @@
+//subarray given witth xor>>>Brute force;
+//O(n^3)  ----- O(n^3)
+//itearating the every loop
+public class Solution {
+    public long solve(int[] A, int B) {
+        long ans=0;
+        for(int i=0;i<A.length;i++){
+            int xorSum=0;
+            for(int j=i;j<A.length;i++){
+                xorSum ^=A[j];
+                if(xorSum==B){
+                    ans++;
+                }
+            }
+        }
+        return ans;
+    }
+}

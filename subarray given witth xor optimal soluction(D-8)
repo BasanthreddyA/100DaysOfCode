@@ -1,0 +1,27 @@
+//subarray given witth xor>>>optimal soluctio;
+//O(n log n)
+//it checks the by doing xor 
+public class Solution {
+    public int solve(int[] A, int B) {
+        int count=0;
+        int xorr=0;
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<A.length;i++){
+            xorr=xorr^A[i];
+            
+            if(map.get(xorr^B) != null){ //it is used to store the keys 
+                count+=map.get(xorr ^ A[i]);
+            }
+            
+            if(xorr==B){
+                count++;
+            }
+            
+            if(map.get(xorr)!= null){
+                map.put(xorr,map.get(xorr)+1);
+            }else{
+                map.put(xorr,1);
+            }
+        }
+        return count;
+    }
