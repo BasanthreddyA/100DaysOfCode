@@ -1,0 +1,46 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		int[] arr = {-8,-8,-3,8};
+		int k=5;
+		int sum=0;
+		//for shortest length of subarray whose sum is k
+		HashMap<Integer,Integer> hm = new HashMap<>();
+		int shortlength=Integer.MAX_VALUE;
+		for(int i=0;i<arr.length;i++){
+			sum+=arr[i];
+			if(sum==k) shortlength=Math.min(shortlength,i+1);
+			if(hm.containsKey(sum-k)) shortlength=Math.min(shortlength, i-hm.get(sum-k));
+			hm.put(sum,i);
+		}
+		if(shortlength!= Integer.MAX_VALUE) System.out.print(solve(arr,shortlength,k));
+		
+	}
+	
+	
+	//Sliding Window for subarrays of shortest length whose sum == k
+	public static int solve(int[] arr,int minlength , int givensum){
+		int ws=0;
+		int count=0;
+		int sum=0;
+		for(int we=0;we<arr.length;we++){
+			sum+=arr[we];
+			if(we-ws+1 >= minlength){
+				if(we-ws+1 == minlength && sum==givensum) count++;
+				sum-=arr[ws];
+				ws++;
+			}
+		}
+		return count;
+		
+	}
+}
