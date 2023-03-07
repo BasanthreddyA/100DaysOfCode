@@ -1,0 +1,23 @@
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] a={10,20,30,40,90,60,10,20,10,10};
+	    int k=50;
+	    int sum=0,min_lengthsubArray= Integer.MAX_VALUE;
+	    
+	    for(int i=0;i<a.length;i++){
+	        sum=0;
+	        for(int j=i;j<a.length;j++){
+	            sum+=a[j];
+	            
+	            if(sum==k){
+	                min_lengthsubArray=Math.min(min_lengthsubArray,(j-i+1));
+	            }
+	        }
+	    }
+	    
+	    
+		System.out.println("minimum length subarray is >> "+min_lengthsubArray);
+	
+	}
+}
