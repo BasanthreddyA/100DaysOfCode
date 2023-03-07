@@ -1,0 +1,21 @@
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] a={10,20,30,40,90,60,10,20,10,10};
+	    int k=50;
+	    int sum=0,max_lengthsubArray=Integer.MIN_VALUE;
+	    
+	    for(int i=0;i<a.length;i++){
+	        sum=0;
+	        for(int j=i;j<a.length;j++){
+	            sum+=a[j];
+	            
+	            if(sum==k){
+	                max_lengthsubArray=Math.max(max_lengthsubArray,(j-i+1));
+	            }
+	        }
+	    }
+	    
+		System.out.println("maximum length sub array is >> "+max_lengthsubArray);
+	}
+}
