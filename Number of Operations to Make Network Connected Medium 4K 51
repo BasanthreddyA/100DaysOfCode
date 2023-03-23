@@ -1,0 +1,26 @@
+class Solution {
+    public int makeConnected(int n, int[][] connections) {
+        int m = connections.length;
+        if(m < n-1) return -1;
+        ArrayList<ArrayList<Integer>> ls = new ArrayList<>();
+        for(int i = 0; i<n; i++) ls.add(new ArrayList<>());
+        for(int a[] : connections){
+            ls.get(a[0]).add(a[1]);
+            ls.get(a[1]).add(a[0]);
+        }
+        int countConnected = 0;
+        boolean vis[] = new boolean[n];
+        for(int i = 0; i<n; i++){
+            if(!vis[i]){
+                countConnected++;
+                dfs(ls, i, vis);
+            }
+        }
+        return countConnected-1;
+    }
+    private void dfs(ArrayList<ArrayList<Integer>> grp, int curr, boolean vis[]){
+        if(curr >= vis.length || vis[curr]) return;
+        vis[curr] = true;
+        for(int child : grp.get(curr)) dfs(grp, child, vis);
+    }
+}
