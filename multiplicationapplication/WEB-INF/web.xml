@@ -1,0 +1,14 @@
+<web-app>
+	<servlet>
+		<servlet-name>mul</servlet-name>
+		<servlet-class>MultiplicationServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		
+		<servlet-name>mul</servlet-name>
+		<url-pattern>/target</url-pattern>
+
+	</servlet-mapping>
+
+</web-app>
