@@ -1,0 +1,30 @@
+class Solution {
+    public boolean isHappy(int n) {
+        //Set are used to store the elements only once
+        Set<Integer> seen=new HashSet<>();
+
+
+//checking the elements is present in the map or not
+        while(n!=1 && !seen.contains(n)){
+    //Adding the n value into the set
+            seen.add(n);
+
+
+            int sum=0;
+         //we are itreating the loop until it becomes 1 or more than "0"
+          while(n!=0){
+              //Taking the Singe Single digits
+                int digit=n%10;
+                //Squaring the digits
+                sum+=digit*digit;
+                n/=10;
+            }
+            //Assing the  sum value to the n
+            n=sum;
+        }
+
+      //  it checks if n==1 it returns True else Returns False
+        return n==1;
+        
+    }
+}
