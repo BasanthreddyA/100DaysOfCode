@@ -1,0 +1,33 @@
+Question :  number-subarrays-sum-less-k
+
+Question : given an array of non negative number and a non-negative number k, find the number of subarrays having sum less than equals to k
+
+
+
+Solution 👍
+
+class Solution{
+
+    public static int lenOfLongSubarr (int a[], int n, int k) {
+       int size=a.length,sum=0,count=0,len=0;
+        int j=0;   
+        for(int i=0;i<size;i++){
+           
+            while(j<size && sum>k){
+               sum+=a[j];
+	   j++;
+            }
+	
+            Len =(j-i);  // it is Taking the value of subarray between the j-i;
+	sum-=a[i];  
+///it is subtracting the  array of i from the sum because it completed the checking>(sum-=a[i];)
+	i++;
+            }
+        }
+        return len;
+        
+    }
+    
+    
+}
+

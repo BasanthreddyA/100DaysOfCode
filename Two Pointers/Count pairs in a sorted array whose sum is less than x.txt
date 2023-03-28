@@ -1,0 +1,28 @@
+Question Link:https://www.geeksforgeeks.org/count-pairs-array-whose-sum-less-x
+we Are checking by using two pointer apporach and finally we have t return the pair less then diff
+
+Solution:
+public class TwoPointer
+{
+    static int Pair(int[] a,int n){
+        int i=0,j=a.length-1,count=0;
+        
+        while(i<j){
+            
+            if(a[i]+a[j]<n ){
+               // System.out.println(a[i]+a[j]);
+                count+=(j-i);
+                i++;
+            }else{
+                j--;
+            }
+        }
+        return count;
+    }
+    
+	public static void main(String[] args) {
+		int[] arr={1,2,3,4,5,6,7,8,9};
+         int x = 7;//4 + 2
+         System.out.println(Pair(arr,x));
+	}
+}

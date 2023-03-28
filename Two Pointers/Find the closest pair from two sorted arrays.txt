@@ -1,0 +1,47 @@
+/******************************************************************************
+
+1) Initialize a variable diff as infinite (Diff is used to store the 
+   difference between pair and x).  We need to find the minimum diff.
+2) Initialize two index variables l and r in the given sorted array.
+       (a) Initialize first to the leftmost index in ar1:  l = 0
+       (b) Initialize second  the rightmost index in ar2:  r = n-1
+3) Loop while  l< length.ar1 and r>=0
+       (a) If  abs(ar1[l] + ar2[r] - sum) < diff  then 
+           update diff and result 
+       (b) If (ar1[l] + ar2[r] <  sum )  then l++
+       (c) Else r--    
+4) Print the result. 
+
+*******************************************************************************/
+public class Main
+{
+	public static void main(String[] args){
+	try{
+	    int a[]={1,2,3,4};
+	    int b[]={10,20,30,40};
+	    int x=25;
+	    int diff=Integer.MAX_VALUE;
+	    int res1=0,res2=0;
+	    int l=0,r=b.length-1;//insalization of two pointers named by l,r
+	    while(l<a.length && r>=0){
+	        if(Math.abs((a[l]+b[r])-x)<diff){
+	            res1=l;
+	            res2=r;
+	            diff=Math.abs((a[l]+b[r])-x);
+	        }
+	        
+	        if((a[l]+b[r])>x){
+	            r--;
+	        }else{
+	            l++;
+	        }
+	        
+	    }
+	    int result=Math.abs((a[res1]+b[res2])-x);
+	    System.out.println("nearest to value is "+result);
+		System.out.println(a[res1]+" "+b[res2]);
+	}catch(Exception e){
+	    System.out.println(e);
+	}
+	}
+}
