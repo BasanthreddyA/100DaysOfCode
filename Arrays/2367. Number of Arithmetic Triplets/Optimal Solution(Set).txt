@@ -1,0 +1,16 @@
+class Solution {
+    public int arithmeticTriplets(int[] nums, int diff) {
+     Set<Integer> ss=new HashSet<>();
+
+    int count=0;
+     for(int n: nums){
+         if(ss.contains(n-diff) && ss.contains(n-diff*2)){
+             count++;
+         }
+             ss.add(n);
+         
+     }
+     return count;
+
+    }
+}
