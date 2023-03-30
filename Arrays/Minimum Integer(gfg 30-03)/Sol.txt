@@ -1,0 +1,19 @@
+
+class Solution {
+    public static int minimumInteger(int N, int[] A) {
+        int ans=Integer.MAX_VALUE;
+        long sum=0;
+        
+        for(int num:A){
+            sum+=num;
+        }
+        
+        for(int num:A){
+            if(sum<=(long)num*N){
+                ans=Math.min(ans,num);
+            }
+        }
+        return ans;
+    }
+}
+        
