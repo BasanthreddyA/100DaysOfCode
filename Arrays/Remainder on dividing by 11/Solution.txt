@@ -1,0 +1,11 @@
+static int xmod11(String x)
+	{   
+	 if(x.length() == 1) return x.charAt(0) - '0';
+        int temp = x.charAt(0) - '0';
+        for(int i = 1; i < x.length(); i++){
+            int ele = x.charAt(i) - '0';
+            if(ele >= temp) temp = ele - temp;
+            else temp = (10+ele) - (temp-1);
+        }
+        return temp;
+}
