@@ -1,0 +1,37 @@
+class Solution {
+    int [][] directions = {{0,1},{0,-1},{1,0},{-1,0}};
+
+    public int closedIsland(int[][] grid) {
+        int row = grid.length;
+        int col = grid[0].length;
+        int islands = 0;
+        
+        for(int i=1; irow; i++){
+            for(int j=1; jcol; j++){
+                if(grid[i][j]==0){
+                    if(dfs(grid, i, j))
+                        islands++;
+                }  
+            }
+        }
+        return islands;
+    }   
+ 
+    private boolean dfs(int [][] grid, int row, int col){
+       
+        if(row0  row=grid.length  col0  col=grid[0].length)
+            return false;
+
+        if (grid[row][col] == 1  grid[row][col] == -1)
+            return true;    
+            grid[row][col] = -1;
+        
+        Boolean isClose = true;
+        isClose &= dfs(grid, row-1, col);
+        isClose &= dfs(grid, row+1, col);
+        isClose &= dfs(grid, row, col-1);
+        isClose &= dfs(grid, row, col+1);
+
+        return isClose;
+    }
+}
