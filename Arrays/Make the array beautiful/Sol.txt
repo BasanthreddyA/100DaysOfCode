@@ -1,0 +1,15 @@
+class Solution {
+    public static ArrayList<Integer> makeBeautiful(int[] arr) {
+        // code here
+       Stack<Integer> stk=new Stack<>();
+       for(int a:arr){
+           if(stk.size()==0 || (stk.peek()<0 && a<0) || (stk.peek()>=0 && a>=0) ){
+               stk.push(a);
+           }
+           else{
+               stk.pop();
+           }
+       }
+        return new ArrayList<>(stk);
+    }
+}
