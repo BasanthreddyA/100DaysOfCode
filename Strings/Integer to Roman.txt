@@ -1,0 +1,14 @@
+Question Link:https://leetcode.com/problems/integer-to-roman/description/
+
+
+
+class Solution {
+    public String intToRoman(int num) {
+        String ones[] = {"","I","II","III","IV","V","VI","VII","VIII","IX"};//1 to 9
+        String tens[] = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};//10 to 90
+        String hrns[] = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};//100 to 900
+        String ths[]={"","M","MM","MMM"};//1000 t0 300
+        
+        return ths[num/1000] + hrns[(num%1000)/100] + tens[(num%100)/10] + ones[num%10];  ///Every element is accesing to by using indexing and concating the every elements 
+        }
+}
